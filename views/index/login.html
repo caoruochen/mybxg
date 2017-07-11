@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="/public/assets/nprogress/nprogress.css">
-    <link rel="stylesheet" href="/public/less/index.css">
+    <?php include('/views/common/style.html'); ?>
 </head>
 <body>
     <!-- 登录 -->
@@ -32,28 +29,10 @@
             </form>
         </div>
     </div>
-    
-    <script src="/public/assets/jquery/jquery.min.js"></script>
-    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        //点击登陆，跳转至首页
-        $("#btn").click(function() {
-            $.ajax({
-                url: '/api/login',
-                type: 'post',
-                dataType: 'json',
-                data: $("form").serialize(),
-                success: function (data) {
-//                    console.log(data);
-                    if (data.code == 200) {
-                        // 应该把data中用户登录信息保存到cookie中即可实现页面数据共享
-                        location.href = './views/index/index.html';
-//                        location.href = './index.html';
-                    }
-                }
-            })
-            return false;//阻止标签默认行为（submit提交跳转）
-        })
+
+    <?php include('/views/common/script.html'); ?>
+    <script type="text/javascript">
+        require(['login']);
     </script>
 </body>
 </html>
