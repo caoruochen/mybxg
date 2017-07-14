@@ -16,7 +16,13 @@ define(['jquery'],function($){
         return obj[key];
     }
 
+    // 设置导航菜单选中
+    function setMenu(path){
+        $(".navs .list-unstyled a[href='"+path+"']").addClass("active");
+    }
+
     return{
-        urlKv:urlKv
+        urlKv:urlKv,
+        setMenu:setMenu
     }
 })
